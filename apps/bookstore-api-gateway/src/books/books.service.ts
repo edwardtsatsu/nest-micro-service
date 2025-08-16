@@ -1,6 +1,7 @@
+import { CreateBookDto } from '@app/contracts/books/create-book.dto';
+import { UpdateBookDto } from '@app/contracts/books/update-book.dto';
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateBookDto } from './dto/create-book.dto';
-import { UpdateBookDto } from './dto/update-book.dto';
+
 import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()
