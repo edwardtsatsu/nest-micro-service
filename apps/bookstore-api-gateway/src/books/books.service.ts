@@ -2,18 +2,17 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 
 import { BOOKS_PATTERNS } from '@app/contracts/books/books.patterns';
-import { BookDto, BookDto as ClientBookDto } from '@app/contracts/books/book.dto';
+import { BookDto as ClientBookDto } from '@app/contracts/books/book.dto';
 import { CreateBookDto as ClientCreateBookDto } from '@app/contracts/books/create-book.dto';
 import { UpdateBookDto as ClientUpdateBookDto } from '@app/contracts/books/update-book.dto';
 import { CreateBookDto } from '@app/contracts/books/create-book.dto';
 import { UpdateBookDto } from '@app/contracts/books/update-book.dto';
-import { map } from 'rxjs';
-import { title } from 'process';
+import { BOOKS_CLIENT } from '../contants';
 
 
 @Injectable()
 export class BooksService {
-  constructor(@Inject('BOOKS_CLIENT') private booksClient: ClientProxy) {}
+  constructor(@Inject(BOOKS_CLIENT) private booksClient: ClientProxy) {}
 
   // private mapBookDto(bookDto: ClientBookDto): BookDto {
   //   return {
