@@ -8,27 +8,27 @@ import { UpdateBookDto } from './dto/update-book.dto';
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
-  @MessagePattern('createBook')
+  @MessagePattern('books.create')
   create(@Payload() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto);
   }
 
-  @MessagePattern('findAllBooks')
+  @MessagePattern('books.findAll')
   findAll() {
     return this.booksService.findAll();
   }
 
-  @MessagePattern('findOneBook')
+  @MessagePattern('books.findOneBook')
   findOne(@Payload() id: number) {
     return this.booksService.findOne(id);
   }
 
-  @MessagePattern('updateBook')
+  @MessagePattern('books.update')
   update(@Payload() updateBookDto: UpdateBookDto) {
     return this.booksService.update(updateBookDto.id, updateBookDto);
   }
 
-  @MessagePattern('removeBook')
+  @MessagePattern('books.remove')
   remove(@Payload() id: number) {
     return this.booksService.remove(id);
   }
